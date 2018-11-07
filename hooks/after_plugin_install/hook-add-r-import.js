@@ -13,7 +13,7 @@ var target = "stage";
 if (process.env.TARGET) {
     target = process.env.TARGET;
 }
-
+ 
 var ourconfigfile = path.join("plugins", "android.json");
 var configobj = JSON.parse(fs.readFileSync(ourconfigfile, 'utf8'));
 
