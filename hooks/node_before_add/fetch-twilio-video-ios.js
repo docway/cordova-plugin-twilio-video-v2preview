@@ -2,7 +2,7 @@ var http = require('http');
 var https = require('https');
 var fs = require('fs');
 var decompress = require('decompress');
-var decompressTarbz = require('decompress-tarbz2');
+var decompressUnzip = require('decompress-unzip');
 
 function getFile(url, path, cb) {
     var http_or_https = http;
@@ -40,7 +40,7 @@ getFile('https://github.com/twilio/twilio-video-ios/releases/download/2.5.3/Twil
   if (err === null) {
     decompress('TwilioVideo.framework.zip', 'src/ios/frameworks', {
         plugins: [
-            decompressTarbz()
+            decompressUnzip()
         ]
     }).then(() => {
         fs.unlink('TwilioVideo.framework.zip');
