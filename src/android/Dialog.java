@@ -5,7 +5,7 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.widget.EditText;
 
-
+import io.ionic.starter.R;
 
 public class Dialog {
 

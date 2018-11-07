@@ -1,7 +1,7 @@
 {
   "version": "0.3.0",
-  "name": "cordova-plugin-twilio-video-v2preview",
-  "cordova_name": "Twilio video room plugin",
+  "name": "cordova-plugin-docway-video",
+  "cordova_name": "Docway video room plugin",
   "license": "Apache 2.0",
   "platforms": [
     "android",

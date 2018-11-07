@@ -45,6 +45,8 @@ import org.webrtc.MediaCodecVideoEncoder;
 import java.util.Arrays;
 import java.util.Collections;
 
+import io.ionic.starter.R;
+
 public class ConversationActivity extends AppCompatActivity {
     private static final int CAMERA_MIC_PERMISSION_REQUEST_CODE = 1;
     private static final String TAG = "VideoActivity";
