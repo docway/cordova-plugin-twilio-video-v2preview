@@ -1,5 +1,4 @@
-package com.anvay.twiliovideocall;
-
+package com.docway.video;
 
 import android.Manifest;
 import android.content.Context;
@@ -18,13 +17,14 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.twilio.video.AudioCodec;
 import com.twilio.video.CameraCapturer;
 import com.twilio.video.CameraCapturer.CameraSource;
 import com.twilio.video.ConnectOptions;
+import com.twilio.video.IsacCodec;
 import com.twilio.video.LocalAudioTrack;
 import com.twilio.video.LocalParticipant;
 import com.twilio.video.LocalVideoTrack;
+import com.twilio.video.OpusCodec;
 import com.twilio.video.RemoteAudioTrack;
 import com.twilio.video.RemoteAudioTrackPublication;
 import com.twilio.video.RemoteDataTrack;
@@ -33,7 +33,6 @@ import com.twilio.video.RemoteParticipant;
 import com.twilio.video.RemoteVideoTrack;
 import com.twilio.video.RemoteVideoTrackPublication;
 import com.twilio.video.Room;
-import com.twilio.video.RoomState;
 import com.twilio.video.TwilioException;
 import com.twilio.video.Video;
 import com.twilio.video.VideoRenderer;
@@ -214,7 +213,7 @@ public class ConversationActivity extends AppCompatActivity {
          * Always disconnect from the room before leaving the Activity to
          * ensure any memory allocated to the Room resource is freed.
          */
-        if (room != null && room.getState() != RoomState.DISCONNECTED) {
+        if (room != null && room.getState() != Room.State.DISCONNECTED) {
             room.disconnect();
             disconnectedFromOnDestroy = true;
         }
@@ -283,7 +282,7 @@ public class ConversationActivity extends AppCompatActivity {
          */
         if (localAudioTrack != null) {
             connectOptionsBuilder
-                    .preferAudioCodecs(Arrays.asList(AudioCodec.OPUS, AudioCodec.ISAC))
+                    .preferAudioCodecs(Arrays.asList(new OpusCodec(), new IsacCodec()))
                     .audioTracks(Collections.singletonList(localAudioTrack));
         }
 
@@ -296,7 +295,7 @@ public class ConversationActivity extends AppCompatActivity {
         room = Video.connect(this, connectOptionsBuilder.build(), roomListener());
         setDisconnectAction();
 
-        
+
     }
 
     /*
@@ -343,7 +342,7 @@ public class ConversationActivity extends AppCompatActivity {
         }
         participantIdentity = participant.getIdentity();
         if(remoteName != null)
-            identityTextView.setText(remoteName);
+            identityTextView.setText(participantIdentity);
         participant.setListener(participantListener());
     }
 
@@ -476,6 +475,11 @@ public class ConversationActivity extends AppCompatActivity {
             }
 
             @Override
+            public void onAudioTrackSubscriptionFailed(RemoteParticipant remoteParticipant, RemoteAudioTrackPublication remoteAudioTrackPublication, TwilioException twilioException) {
+
+            }
+
+            @Override
             public void onAudioTrackUnsubscribed(RemoteParticipant remoteParticipant, RemoteAudioTrackPublication remoteAudioTrackPublication, RemoteAudioTrack remoteAudioTrack) {
 
             }
@@ -493,6 +497,11 @@ public class ConversationActivity extends AppCompatActivity {
             @Override
             public void onVideoTrackSubscribed(RemoteParticipant remoteParticipant, RemoteVideoTrackPublication remoteVideoTrackPublication, RemoteVideoTrack remoteVideoTrack) {
                 addParticipantVideo(remoteVideoTrack);
+            }
+
+            @Override
+            public void onVideoTrackSubscriptionFailed(RemoteParticipant remoteParticipant, RemoteVideoTrackPublication remoteVideoTrackPublication, TwilioException twilioException) {
+
             }
 
             @Override
@@ -520,6 +529,11 @@ public class ConversationActivity extends AppCompatActivity {
 
             @Override
             public void onDataTrackSubscribed(RemoteParticipant remoteParticipant, RemoteDataTrackPublication remoteDataTrackPublication, RemoteDataTrack remoteDataTrack) {
+
+            }
+
+            @Override
+            public void onDataTrackSubscriptionFailed(RemoteParticipant remoteParticipant, RemoteDataTrackPublication remoteDataTrackPublication, TwilioException twilioException) {
 
             }
 

@@ -1,4 +1,4 @@
-package com.anvay.twiliovideocall;
+package com.docway.video;
 
 import org.apache.cordova.BuildHelper;
 import org.apache.cordova.CallbackContext;
@@ -16,7 +16,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-
 public class VideoConversationPlugin extends CordovaPlugin {
 
 
@@ -30,10 +29,8 @@ public class VideoConversationPlugin extends CordovaPlugin {
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
         super.initialize(cordova, webView);
         this.cordova = cordova;
-        // your init code here
-    }
-
-    
+	}
+	
 	public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 		this.callbackContext = callbackContext;
 		if (action.equals("open")) {

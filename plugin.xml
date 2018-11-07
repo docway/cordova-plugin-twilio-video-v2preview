@@ -50,7 +50,7 @@
         <hook type="after_plugin_install" src="hooks/after_plugin_install/hook-add-r-import.js" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="VideoConversationPlugin">
-                <param name="android-package" value="com.anvay.twiliovideocall.VideoConversationPlugin" />
+                <param name="android-package" value="com.docway.video.VideoConversationPlugin" />
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">
@@ -66,15 +66,15 @@
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity 
-                android:name="com.anvay.twiliovideocall.ConversationActivity"
+                android:name="com.docway.video.ConversationActivity"
                 android:configChanges="orientation|screenSize" 
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             </activity>
         </config-file>
-        <source-file src="src/android/VideoConversationPlugin.java" target-dir="src/com/anvay/twiliovideocall" />
-        <source-file src="src/android/ConversationActivity.java" target-dir="src/com/anvay/twiliovideocall" />
-        <source-file src="src/android/Dialog.java" target-dir="src/com/anvay/twiliovideocall" />
-        <framework src="src/android/twiliovideo.gradle" custom="true" type="gradleReference" />
+        <source-file src="src/android/VideoConversationPlugin.java" target-dir="src/com/docway/video" />
+        <source-file src="src/android/ConversationActivity.java" target-dir="src/com/docway/video" />
+        <source-file src="src/android/Dialog.java" target-dir="src/com/docway/video" />
+        <framework src="src/android/docwayvideo.gradle" custom="true" type="gradleReference" />
         <dependency id="cordova-plugin-compat" />
         
         <resource-file src="src/android/res/drawable/ic_call_black_24dp.xml" target="res/drawable/ic_call_black_24dp.xml" />
