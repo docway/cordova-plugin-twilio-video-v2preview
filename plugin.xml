@@ -15,13 +15,13 @@
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
             <feature name="VideoConversationPlugin">
-                <param name="ios-package" value="TwilioVideoPlugin" />
+                <param name="ios-package" value="DocwayVideoPlugin" />
             </feature>
         </config-file>
-        <source-file src="src/ios/TwilioVideoPlugin.m" />
-        <source-file src="src/ios/TwilioVideoViewController.m" />
-        <header-file src="src/ios/TwilioVideoViewController.h" />
-        <resource-file src="src/ios/Resources/TwilioVideo.storyboard" target="Resources/TwilioVideo.storyboard" />
+        <source-file src="src/ios/DocwayVideoPlugin.m" />
+        <source-file src="src/ios/DocwayVideoViewController.m" />
+        <header-file src="src/ios/DocwayVideoViewController.h" />
+        <resource-file src="src/ios/Resources/DocwayVideo.storyboard" target="Resources/DocwayVideo.storyboard" />
         <resource-file src="src/ios/Resources/end-call-filled-50.png" target="Resources/end-call-filled-50.png" />
         <resource-file src="src/ios/Resources/microphone-filled-50.png" target="Resources/microphone-filled-50.png" />
         <resource-file src="src/ios/Resources/video-call-filled-50.png" target="Resources/video-call-filled-50.png" />

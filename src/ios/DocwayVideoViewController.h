@@ -1,12 +1,12 @@
 //
-//  TwilioVideoViewController.h
+//  DocwayVideoViewController.h
 //
-//  Copyright © 2016-2017 Twilio, Inc. All rights reserved.
+//  Copyright © 2018 Docway, Inc. All rights reserved.
 //
 
 @import UIKit;
 
-@interface TwilioVideoViewController : UIViewController
+@interface DocwayVideoViewController : UIViewController
 
 @property (nonatomic, strong) NSString *accessToken;
 @property (nonatomic, strong) NSString *remoteParticipantName;

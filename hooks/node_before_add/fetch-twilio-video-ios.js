@@ -25,8 +25,7 @@ function getFile(url, path, cb) {
             case 302:
             case 303:
             case 307:
-                getFile('https://media.twiliocdn.com' + response.headers.location, path, cb);
-                break;
+                getFile('https://github.com' + response.headers.location, path, cb);
             default:
                 cb(new Error('Server responded with status code ' + response.statusCode));
         }
@@ -37,14 +36,14 @@ function getFile(url, path, cb) {
     });
 }
 
-getFile('https://media.twiliocdn.com/sdk/ios/video/releases/1.3.9/twilio-video-ios-1.3.9.tar.bz2', 'twilio-video-ios.tar.bz2', function(err) {
+getFile('https://github.com/twilio/twilio-video-ios/releases/download/2.5.3/TwilioVideo.framework.zip', 'TwilioVideo.framework.zip', function(err) {
   if (err === null) {
-    decompress('twilio-video-ios.tar.bz2', 'src/ios/frameworks', {
+    decompress('TwilioVideo.framework.zip', 'src/ios/frameworks', {
         plugins: [
             decompressTarbz()
         ]
     }).then(() => {
-        fs.unlink('twilio-video-ios.tar.bz2');
+        fs.unlink('TwilioVideo.framework.zip');
     });
   }
 });

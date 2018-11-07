@@ -1,11 +1,11 @@
 //
-//  TwilioVideoViewController.m
+//  DocwayVideoViewController.m
 //
-//  Copyright © 2016-2017 Twilio, Inc. All rights reserved.
+//  Copyright © 2018 Docway, Inc. All rights reserved.
 //
 
 @import TwilioVideo;
-#import "TwilioVideoViewController.h"
+#import "DocwayVideoViewController.h"
 
 
 #import <Foundation/Foundation.h>
@@ -27,7 +27,7 @@
 
 @end
 
-@interface TwilioVideoViewController () <UITextFieldDelegate, TVIParticipantDelegate, TVIRoomDelegate, TVIVideoViewDelegate, TVICameraCapturerDelegate>
+@interface DocwayVideoViewController () <UITextFieldDelegate, TVIParticipantDelegate, TVIRoomDelegate, TVIVideoViewDelegate, TVICameraCapturerDelegate>
 
 #pragma mark Video SDK components
 
@@ -53,7 +53,7 @@
 
 @end
 
-@implementation TwilioVideoViewController
+@implementation DocwayVideoViewController
 
 #pragma mark - UIViewController
 
@@ -75,7 +75,7 @@
 - (void)connectToRoom:(NSString*)room {
     [self showRoomUI:YES];
     
-    if ([self.accessToken isEqualToString:@"TWILIO_ACCESS_TOKEN"]) {
+    if ([self.accessToken isEqualToString:@"NO_ACCESS_TOKEN"]) {
         [self logMessage:[NSString stringWithFormat:@"Fetching an access token"]];
         [self showRoomUI:NO];
     } else {
@@ -167,7 +167,7 @@
 }
 
 - (void)doConnect:(NSString*)room {
-    if ([self.accessToken isEqualToString:@"TWILIO_ACCESS_TOKEN"]) {
+    if ([self.accessToken isEqualToString:@"NO_ACCESS_TOKEN"]) {
         //   [self logMessage:@"Please provide a valid token to connect to a room"];
         return;
     }

@@ -1,13 +1,11 @@
-/********* TwilioVideo.m Cordova Plugin Implementation *******/
-
 #import <Cordova/CDV.h>
-#import "TwilioVideoViewController.h"
+#import "DocwayVideoViewController.h"
 
-@interface TwilioVideoPlugin : CDVPlugin
+@interface DocwayVideoPlugin : CDVPlugin
 
 @end
 
-@implementation TwilioVideoPlugin
+@implementation DocwayVideoPlugin
 
 - (void)open:(CDVInvokedUrlCommand*)command {
     NSString* room = command.arguments[0];
@@ -16,13 +14,11 @@
     
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"TwilioVideo" bundle:nil];
-        TwilioVideoViewController *vc = [sb instantiateViewControllerWithIdentifier:@"TwilioVideoViewController"];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"DocwayVideo" bundle:nil];
+        DocwayVideoViewController *vc = [sb instantiateViewControllerWithIdentifier:@"DocwayVideoViewController"];
         
         vc.accessToken = token;
         vc.remoteParticipantName = remoteParticipantName;
-       // UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-      //  [vc.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissTwilioVideoController)]];
          
         
         [self.viewController presentViewController:vc animated:YES completion:^{
@@ -34,7 +30,7 @@
 
 }
 
-- (void) dismissTwilioVideoController {
+- (void) dismissDocwayVideoController {
     [self.viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
