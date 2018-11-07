@@ -1,20 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin 
     id="cordova-plugin-docway-video"
-    version="0.6.0" 
+    version="0.7.0" 
     xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Docway Video Conversation Plugin</name>
     <license></license>
-    <js-module name="twilio-solution" src="conversation.js">
+    <js-module name="docway-solution" src="conversation.js">
         <clobbers target="cordova.docway.video" />
     </js-module>
     <engines>
         <engine name="cordova" version=">=4.5.3" />
     </engines>
     <platform name="ios">
-        <config-file parent="/*" target="config.xml">
             <feature name="VideoConversationPlugin">
+        <config-file parent="/*" target="config.xml">
                 <param name="ios-package" value="DocwayVideoPlugin" />
             </feature>
         </config-file>

@@ -14,7 +14,7 @@ if (process.env.TARGET) {
     target = process.env.TARGET;
 }
 
-var ourconfigfile = path.join( "plugins", "android.json");
+var ourconfigfile = path.join("plugins", "android.json");
 var configobj = JSON.parse(fs.readFileSync(ourconfigfile, 'utf8'));
 
 // Add java files where you want to add R.java imports in the following array
@@ -28,7 +28,7 @@ filestoreplace.forEach(function(val, index, array) {
         console.log("Android platform available !");
         
 		//Getting the package name from the android.json file,replace with your plugin's id
-        var packageName = configobj.installed_plugins["cordova-plugin-twilio-video-v2preview"]["PACKAGE_NAME"];
+        var packageName = configobj.installed_plugins["cordova-plugin-docway-video"]["PACKAGE_NAME"];
         console.log("With the package name: " + packageName);
         console.log("Adding import for R.java");
         replace_string_in_file(val, "package com.docway.video;", "package com.docway.video;\n\nimport " + packageName + ".R;");
