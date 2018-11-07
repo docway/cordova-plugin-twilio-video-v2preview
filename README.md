@@ -12,7 +12,7 @@
   
 2. Implemente o seguinte código
     - Gere o token e chame a API
-    `cordova.videoconversation.open(RoomName: string, Token: string, RemoteParticipantName: string);`
+    `cordova.docway.video.open(RoomName: string, Token: string, RemoteParticipantName: string);`
 
 	
 ## Créditos

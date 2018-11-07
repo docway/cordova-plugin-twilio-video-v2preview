@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin 
     id="cordova-plugin-docway-video"
-    version="0.4.0" 
+    version="0.5.0" 
     xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>Twilio video conversation plugin</name>
+    <name>Docway Video Conversation Plugin</name>
     <license></license>
     <js-module name="twilio-solution" src="conversation.js">
-        <clobbers target="cordova.videoconversation" />
+        <clobbers target="cordova.docway.video" />
     </js-module>
     <engines>
         <engine name="cordova" version=">=4.5.3" />

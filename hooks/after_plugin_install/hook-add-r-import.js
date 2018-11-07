@@ -14,24 +14,24 @@ if (process.env.TARGET) {
     target = process.env.TARGET;
 }
 
-    var ourconfigfile = path.join( "plugins", "android.json");
-    var configobj = JSON.parse(fs.readFileSync(ourconfigfile, 'utf8'));
-  // Add java files where you want to add R.java imports in the following array
+var ourconfigfile = path.join( "plugins", "android.json");
+var configobj = JSON.parse(fs.readFileSync(ourconfigfile, 'utf8'));
 
-    var filestoreplace = [
-        "platforms/android/src/com/anvay/twiliovideocall/ConversationActivity.java",
-        "platforms/android/src/com/anvay/twiliovideocall/Dialog.java"
-    ];
-    filestoreplace.forEach(function(val, index, array) {
-        if (fs.existsSync(val)) {
-          console.log("Android platform available !");
-          //Getting the package name from the android.json file,replace with your plugin's id
-          var packageName = configobj.installed_plugins["cordova-plugin-twilio-video-v2preview"]["PACKAGE_NAME"];
-          console.log("With the package name: "+packageName);
-          console.log("Adding import for R.java");
-            replace_string_in_file(val,"package com.anvay.twiliovideocall;","package com.anvay.twiliovideocall;\n\nimport "+packageName+".R;");
-
-        } else {
-            console.log("No android platform found! :(");
-        }
-    });
+// Add java files where you want to add R.java imports in the following array
+var filestoreplace = [
+    "platforms/android/app/src/main/com/docway/video/ConversationActivity.java",
+    "platforms/android/app/src/main/com/docway/video/Dialog.java"
+];
+filestoreplace.forEach(function(val, index, array) {
+	if (fs.existsSync(val)) {
+        console.log("Android platform available !");
+        
+		//Getting the package name from the android.json file,replace with your plugin's id
+        var packageName = configobj.installed_plugins["cordova-plugin-twilio-video-v2preview"]["PACKAGE_NAME"];
+        console.log("With the package name: " + packageName);
+        console.log("Adding import for R.java");
+        replace_string_in_file(val, "package com.docway.video;", "package com.docway.video;\n\nimport " + packageName + ".R;");
+    } else {
+        console.log("No android platform found! :(");
+    }
+});
