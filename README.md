@@ -11,6 +11,9 @@
     - `npm install --save cordova-plugin-docway-video`
   
 2. Implemente o seguinte código
+	- Declare a variavel do cordova
+	declare var cordova;
+
     - Gere o token e chame a API
     `cordova.docway.video.open(RoomName: string, Token: string, RemoteParticipantName: string);`
 
