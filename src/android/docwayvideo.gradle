@@ -1,0 +1,10 @@
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.twilio:video-android:3.0.0'
+    implementation 'com.koushikdutta.ion:ion:2.1.7'
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:design:26.1.0'
+}
