@@ -5,6 +5,8 @@
 //
 
 @import TwilioVideo;
+#import "TimerController.h"
+#import "CancelAlertViewController.h"
 #import "DocwayVideoViewController.h"
 
 
@@ -27,7 +29,7 @@
 
 @end
 
-@interface DocwayVideoViewController () <TVIRemoteParticipantDelegate, TVIRoomDelegate, TVIVideoViewDelegate, TVICameraCapturerDelegate>
+@interface DocwayVideoViewController () <TVIRemoteParticipantDelegate, TVIRoomDelegate, TVIVideoViewDelegate, TVICameraCapturerDelegate, CancelAlertViewControllerDelegate>
 
 #pragma mark Video SDK components
 
@@ -46,6 +48,7 @@
 @property (weak, nonatomic) IBOutlet TVIVideoView *previewView;
 
 @property (nonatomic, weak) IBOutlet UIButton *disconnectButton;
+@property (nonatomic, weak) IBOutlet UILabel *timerLabel;
 @property (nonatomic, weak) IBOutlet UILabel *messageLabel;
 @property (nonatomic, weak) IBOutlet UIButton *micButton;
 @property (nonatomic, weak) IBOutlet UIButton *flipCameraButton;
@@ -72,6 +75,11 @@
 
 #pragma mark - Public
 
+- (void)didCancel {
+    [self.room disconnect];
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
 - (void)connectToRoom:(NSString*)room {
     [self showRoomUI:YES];
     
@@ -84,8 +92,10 @@
 }
 
 - (IBAction)disconnectButtonPressed:(id)sender {
-    [self.room disconnect];
-    [self dismissViewControllerAnimated:true completion:nil];
+    CancelAlertViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"Cancel"];
+    viewController.delegate = self;
+
+    [self presentViewController:viewController animated:true completion:nil];
 }
 
 - (IBAction)micButtonPressed:(id)sender {
@@ -93,9 +103,9 @@
         self.localAudioTrack.enabled = !self.localAudioTrack.isEnabled;
         
         if (self.localAudioTrack.isEnabled) {
-            [self.micButton setImage:[UIImage imageNamed:@"microphone-filled-50.png"] forState:UIControlStateNormal];
+            [self.micButton setImage:[UIImage imageNamed:@"ic-microphone.png"] forState:UIControlStateNormal];
         } else {
-            [self.micButton setImage:[UIImage imageNamed:@"mute-unmute-filled-50.png"] forState:UIControlStateNormal];
+            [self.micButton setImage:[UIImage imageNamed:@"ic-microphone-off.png"] forState:UIControlStateNormal];
         }
     }
 }
@@ -113,9 +123,9 @@
         self.localVideoTrack.enabled = !self.localVideoTrack.isEnabled;
         
         if(self.localVideoTrack.isEnabled){
-            [self.videoButton setImage:[UIImage imageNamed:@"video-call-filled-50.png"] forState:UIControlStateNormal];
+            [self.videoButton setImage:[UIImage imageNamed:@"ic-video.png.png"] forState:UIControlStateNormal];
         }else {
-            [self.videoButton setImage:[UIImage imageNamed:@"no-video-filled-50.png"] forState:UIControlStateNormal];
+            [self.videoButton setImage:[UIImage imageNamed:@"ic-video-off.png"] forState:UIControlStateNormal];
         }
     }
 }
@@ -195,6 +205,7 @@
 - (void)setupRemoteView {
     // Creating `TVIVideoView` programmatically
     TVIVideoView *remoteView = [[TVIVideoView alloc] init];
+    [[[TimerController alloc] initWithLabel:self.timerLabel] update];
     
     // `TVIVideoView` supports UIViewContentModeScaleToFill, UIViewContentModeScaleAspectFill and UIViewContentModeScaleAspectFit
     // UIViewContentModeScaleAspectFit is the default mode when you create `TVIVideoView` programmatically.
@@ -234,6 +245,7 @@
                                                               attribute:NSLayoutAttributeHeight
                                                              multiplier:1
                                                                constant:0];
+    
     [self.view addConstraint:height];
 }
 
@@ -247,6 +259,8 @@
 - (void)cleanupRemoteParticipant {
     if (self.participant) {
         if ([self.participant.videoTracks count] > 0) {
+            [self.timerLabel setText:@"00:00"];
+
             TVIVideoTrack *videoTrack = self.participant.videoTracks[0].videoTrack;
             [videoTrack removeRenderer:self.remoteView];
             [self.remoteView removeFromSuperview];
@@ -266,7 +280,7 @@
     
     // [self logMessage:[NSString stringWithFormat:@"Connected to room %@ as %@", room.name, room.localParticipant.identity]];
     [self logMessage:@"Waiting on participant to join"];
-    self.messageLabel.text = self.remoteParticipantName;
+
     if (room.remoteParticipants.count > 0) {
         self.participant = room.remoteParticipants[0];
         self.participant.delegate = self;

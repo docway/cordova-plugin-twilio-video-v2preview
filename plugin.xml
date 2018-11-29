@@ -18,16 +18,24 @@
                 <param name="ios-package" value="DocwayVideoPlugin" />
             </feature>
         </config-file>
+        <source-file src="src/ios/TimerController.m" />
+        <header-file src="src/ios/TimerController.h" />
         <source-file src="src/ios/DocwayVideoPlugin.m" />
         <source-file src="src/ios/DocwayVideoViewController.m" />
         <header-file src="src/ios/DocwayVideoViewController.h" />
+        <source-file src="src/ios/CancelAlertViewController.m" />
+        <header-file src="src/ios/CancelAlertViewController.h" />
+        <resource-file src="src/ios/Resources/ic-phone.png" target="Resources/ic-phone.png" />
+        <resource-file src="src/ios/Resources/ic-video.png" target="Resources/ic-video.png" />
+        <resource-file src="src/ios/Resources/ic-reverse.png" target="Resources/ic-reverse.png" />
+        <resource-file src="src/ios/Resources/ic-video-off.png" target="Resources/ic-video-off.png" />
+        <resource-file src="src/ios/Resources/ic-microphone.png" target="Resources/ic-microphone.png" />
+        <resource-file src="src/ios/Resources/MavenPro-Bold.ttf" target="Resources/MavenPro-Bold.ttf" />
+        <resource-file src="src/ios/Resources/MavenPro-Black.ttf" target="Resources/MavenPro-Black.ttf" />
+        <resource-file src="src/ios/Resources/MavenPro-Medium.ttf" target="Resources/MavenPro-Medium.ttf" />
+        <resource-file src="src/ios/Resources/MavenPro-Regular.ttf" target="Resources/MavenPro-Regular.ttf" />
+        <resource-file src="src/ios/Resources/ic-microphone-off.png" target="Resources/ic-microphone-off.png" />
         <resource-file src="src/ios/Resources/DocwayVideo.storyboard" target="Resources/DocwayVideo.storyboard" />
-        <resource-file src="src/ios/Resources/end-call-filled-50.png" target="Resources/end-call-filled-50.png" />
-        <resource-file src="src/ios/Resources/microphone-filled-50.png" target="Resources/microphone-filled-50.png" />
-        <resource-file src="src/ios/Resources/video-call-filled-50.png" target="Resources/video-call-filled-50.png" />
-        <resource-file src="src/ios/Resources/switch-camera-filled-50.png" target="Resources/switch-camera-filled-50.png" />
-        <resource-file src="src/ios/Resources/mute-unmute-filled-50.png" target="Resources/mute-unmute-filled-50.png" />
-        <resource-file src="src/ios/Resources/no-video-filled-50.png" target="Resources/no-video-filled-50.png" />
         <preference name="CAMERA_USAGE_DESCRIPTION" default="Camera" />
         <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
             <string>$CAMERA_USAGE_DESCRIPTION</string>
@@ -35,6 +43,14 @@
         <preference name="MICROPHONE_USAGE_DESCRIPTION" default="Microphone"/>
         <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
             <string>$MICROPHONE_USAGE_DESCRIPTION</string>
+        </config-file>
+        <config-file target="*-Info.plist" parent="UIAppFonts">
+            <array>
+                <string>MavenPro-Bold.ttf</string>
+                <string>MavenPro-Black.ttf</string>
+                <string>MavenPro-Medium.ttf</string>
+                <string>MavenPro-Regular.ttf</string>
+            </array>
         </config-file>
         <framework src="src/ios/frameworks/Build/iOS/TwilioVideo.framework" custom="true" embed="true" />
         <framework src="AudioToolbox.framework" />
