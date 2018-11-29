@@ -30,8 +30,6 @@
         <resource-file src="src/ios/Resources/ic-reverse.png" target="Resources/ic-reverse.png" />
         <resource-file src="src/ios/Resources/ic-video-off.png" target="Resources/ic-video-off.png" />
         <resource-file src="src/ios/Resources/ic-microphone.png" target="Resources/ic-microphone.png" />
-        <resource-file src="src/ios/Resources/MavenPro-Bold.ttf" target="Resources/MavenPro-Bold.ttf" />
-        <resource-file src="src/ios/Resources/MavenPro-Black.ttf" target="Resources/MavenPro-Black.ttf" />
         <resource-file src="src/ios/Resources/MavenPro-Medium.ttf" target="Resources/MavenPro-Medium.ttf" />
         <resource-file src="src/ios/Resources/MavenPro-Regular.ttf" target="Resources/MavenPro-Regular.ttf" />
         <resource-file src="src/ios/Resources/ic-microphone-off.png" target="Resources/ic-microphone-off.png" />
@@ -46,8 +44,6 @@
         </config-file>
         <config-file target="*-Info.plist" parent="UIAppFonts">
             <array>
-                <string>MavenPro-Bold.ttf</string>
-                <string>MavenPro-Black.ttf</string>
                 <string>MavenPro-Medium.ttf</string>
                 <string>MavenPro-Regular.ttf</string>
             </array>
