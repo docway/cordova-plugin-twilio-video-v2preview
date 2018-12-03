@@ -37,7 +37,6 @@
 @property (nonatomic, strong) TVILocalVideoTrack *localVideoTrack;
 @property (nonatomic, strong) TVILocalAudioTrack *localAudioTrack;
 @property (nonatomic, strong) TVIRemoteParticipant *participant;
-@property (nonatomic, weak) TVIVideoView *remoteView;
 @property (nonatomic, strong) TVIRoom *room;
 
 #pragma mark UI Element Outlets and handles
@@ -46,6 +45,7 @@
 
 // `TVIVideoView` created from a storyboard
 @property (weak, nonatomic) IBOutlet TVIVideoView *previewView;
+@property (weak, nonatomic) IBOutlet TVIVideoView *remoteView;
 
 @property (nonatomic, weak) IBOutlet UIButton *disconnectButton;
 @property (nonatomic, weak) IBOutlet UILabel *timerLabel;
@@ -203,50 +203,12 @@
 }
 
 - (void)setupRemoteView {
-    // Creating `TVIVideoView` programmatically
-    TVIVideoView *remoteView = [[TVIVideoView alloc] init];
+    self.remoteView.delegate = self;
     [[[TimerController alloc] initWithLabel:self.timerLabel] update];
-    
-    // `TVIVideoView` supports UIViewContentModeScaleToFill, UIViewContentModeScaleAspectFill and UIViewContentModeScaleAspectFit
-    // UIViewContentModeScaleAspectFit is the default mode when you create `TVIVideoView` programmatically.
-    self.remoteView.contentMode = UIViewContentModeScaleAspectFit;
-    
-    [self.view insertSubview:remoteView atIndex:0];
-    self.remoteView = remoteView;
-    
-    NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:self.remoteView
-                                                               attribute:NSLayoutAttributeCenterX
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:self.view
-                                                               attribute:NSLayoutAttributeCenterX
-                                                              multiplier:1
-                                                                constant:0];
-    [self.view addConstraint:centerX];
-    NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:self.remoteView
-                                                               attribute:NSLayoutAttributeCenterY
-                                                               relatedBy:NSLayoutRelationEqual
-                                                                  toItem:self.view
-                                                               attribute:NSLayoutAttributeCenterY
-                                                              multiplier:1
-                                                                constant:0];
-    [self.view addConstraint:centerY];
-    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.remoteView
-                                                             attribute:NSLayoutAttributeWidth
-                                                             relatedBy:NSLayoutRelationEqual
-                                                                toItem:self.view
-                                                             attribute:NSLayoutAttributeWidth
-                                                            multiplier:1
-                                                              constant:0];
-    [self.view addConstraint:width];
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.remoteView
-                                                              attribute:NSLayoutAttributeHeight
-                                                              relatedBy:NSLayoutRelationEqual
-                                                                 toItem:self.view
-                                                              attribute:NSLayoutAttributeHeight
-                                                             multiplier:1
-                                                               constant:0];
-    
-    [self.view addConstraint:height];
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    [self.view setNeedsLayout];
 }
 
 // Reset the client ui status
@@ -263,7 +225,6 @@
 
             TVIVideoTrack *videoTrack = self.participant.videoTracks[0].videoTrack;
             [videoTrack removeRenderer:self.remoteView];
-            [self.remoteView removeFromSuperview];
         }
         self.participant = nil;
     }
@@ -392,7 +353,6 @@
     
     if (self.participant == participant) {
         [videoTrack removeRenderer:self.remoteView];
-        [self.remoteView removeFromSuperview];
     }
 }
 

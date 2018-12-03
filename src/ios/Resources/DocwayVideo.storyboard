@@ -30,6 +30,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="7e2-sd-ryh" customClass="TVIVideoView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwp-9E-VzS" userLabel="Mic Button">
                                 <rect key="frame" x="20" y="575" width="44" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -155,15 +159,19 @@
                         <constraints>
                             <constraint firstItem="rwp-9E-VzS" firstAttribute="bottom" secondItem="deh-AI-0mD" secondAttribute="bottom" id="5Pv-qJ-c2O"/>
                             <constraint firstItem="hJ3-NM-pz1" firstAttribute="top" secondItem="wfb-QN-RRT" secondAttribute="bottom" constant="12" id="BOa-vO-l9o"/>
+                            <constraint firstAttribute="trailing" secondItem="7e2-sd-ryh" secondAttribute="trailing" id="FR5-cc-4c0"/>
                             <constraint firstItem="krA-sT-Z3g" firstAttribute="centerX" secondItem="3Bh-pO-6uY" secondAttribute="centerX" constant="30" id="FY6-AS-oLY"/>
+                            <constraint firstItem="tZu-uw-hgi" firstAttribute="top" secondItem="7e2-sd-ryh" secondAttribute="bottom" id="FcZ-IR-WvX"/>
                             <constraint firstItem="rwp-9E-VzS" firstAttribute="centerY" secondItem="krA-sT-Z3g" secondAttribute="centerY" id="Ksg-k2-Cjc"/>
                             <constraint firstAttribute="trailing" secondItem="wfb-QN-RRT" secondAttribute="trailing" id="LKI-RI-8MS"/>
                             <constraint firstItem="wfb-QN-RRT" firstAttribute="leading" secondItem="3Bh-pO-6uY" secondAttribute="leading" id="Tc9-hD-3H3"/>
                             <constraint firstItem="deh-AI-0mD" firstAttribute="leading" secondItem="rwp-9E-VzS" secondAttribute="trailing" constant="24" id="Tgh-NB-BVO"/>
                             <constraint firstItem="tZu-uw-hgi" firstAttribute="top" secondItem="rwp-9E-VzS" secondAttribute="bottom" constant="48" id="Ufy-b1-aag"/>
+                            <constraint firstItem="7e2-sd-ryh" firstAttribute="leading" secondItem="3Bh-pO-6uY" secondAttribute="leading" id="cZe-yI-r2b"/>
                             <constraint firstItem="XFY-jj-EdK" firstAttribute="bottom" secondItem="rwp-9E-VzS" secondAttribute="bottom" id="eTF-OH-6C1"/>
                             <constraint firstAttribute="trailing" secondItem="XFY-jj-EdK" secondAttribute="trailing" constant="20" id="fWB-mG-g8m"/>
                             <constraint firstItem="rwp-9E-VzS" firstAttribute="leading" secondItem="3Bh-pO-6uY" secondAttribute="leading" constant="20" id="fmR-lN-Su9"/>
+                            <constraint firstItem="7e2-sd-ryh" firstAttribute="top" secondItem="8oD-ke-cGW" secondAttribute="bottom" id="ijH-hG-33W"/>
                             <constraint firstItem="wfb-QN-RRT" firstAttribute="top" secondItem="8oD-ke-cGW" secondAttribute="bottom" id="mIt-3r-Q5T"/>
                             <constraint firstAttribute="trailing" secondItem="hJ3-NM-pz1" secondAttribute="trailing" constant="12" id="nhX-ze-s90"/>
                         </constraints>
@@ -174,6 +182,7 @@
                         <outlet property="messageLabel" destination="ebq-ja-6iU" id="yjH-dj-KgF"/>
                         <outlet property="micButton" destination="rwp-9E-VzS" id="SW4-po-OHw"/>
                         <outlet property="previewView" destination="hJ3-NM-pz1" id="1kY-rd-tEJ"/>
+                        <outlet property="remoteView" destination="7e2-sd-ryh" id="ABi-fa-pUG"/>
                         <outlet property="timerLabel" destination="CER-du-bK2" id="KZq-98-36Y"/>
                         <outlet property="videoButton" destination="deh-AI-0mD" id="xQb-FF-JQs"/>
                     </connections>
@@ -198,15 +207,15 @@
                                 <rect key="frame" x="32" y="221.5" width="311" height="224"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atenção" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Da-hi-okE">
-                                        <rect key="frame" x="117.5" y="8" width="77" height="23.5"/>
+                                        <rect key="frame" x="117.5" y="24" width="77" height="23.5"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="20"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.066666666666666666" green="0.19215686274509802" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deseja sair do atendimento? Você pode voltar a acessar enquento o atendimento estiver ativo." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9V1-JI-7sq">
-                                        <rect key="frame" x="42" y="52" width="227" height="70.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deseja sair do atendimento? Você pode voltar a acessar enquanto o atendimento estiver ativo." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9V1-JI-7sq">
+                                        <rect key="frame" x="42" y="68" width="227" height="70.5"/>
                                         <fontDescription key="fontDescription" name="MavenPro-Regular" family="Maven Pro" pointSize="15"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiD-dC-Yzr">
@@ -216,7 +225,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                         <state key="normal" title="SIM">
-                                            <color key="titleColor" red="0.5607843137254902" green="0.81960784313725488" blue="0.41568627450980389" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.96078431372549022" green="0.44313725490196076" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="touchupinFromSignOut:" destination="Jdi-tQ-w4V" eventType="touchUpInside" id="hGz-3a-jby"/>
@@ -229,7 +238,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="MavenPro-Medium" family="Maven Pro" pointSize="17"/>
                                         <state key="normal" title="VOLTAR">
-                                            <color key="titleColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="0.96078431372549022" green="0.44313725490196076" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="touchupinFromStay:" destination="Jdi-tQ-w4V" eventType="touchUpInside" id="U00-NB-3aJ"/>
@@ -247,13 +256,13 @@
                                     <constraint firstItem="osZ-Vd-zXa" firstAttribute="leading" secondItem="bCt-e4-yJZ" secondAttribute="leading" id="hkr-8t-WhT"/>
                                     <constraint firstItem="EiD-dC-Yzr" firstAttribute="width" secondItem="bCt-e4-yJZ" secondAttribute="width" multiplier="0.5" id="kkF-YI-RBl"/>
                                     <constraint firstItem="9V1-JI-7sq" firstAttribute="leading" secondItem="bCt-e4-yJZ" secondAttribute="leading" constant="42" id="knL-2g-Xce"/>
-                                    <constraint firstItem="5Da-hi-okE" firstAttribute="top" secondItem="bCt-e4-yJZ" secondAttribute="top" constant="8" id="lk5-Fg-hEj"/>
+                                    <constraint firstItem="5Da-hi-okE" firstAttribute="top" secondItem="bCt-e4-yJZ" secondAttribute="top" constant="24" id="lk5-Fg-hEj"/>
                                     <constraint firstAttribute="bottom" secondItem="EiD-dC-Yzr" secondAttribute="bottom" id="uZY-A7-Ocl"/>
                                     <constraint firstAttribute="trailing" secondItem="9V1-JI-7sq" secondAttribute="trailing" constant="42" id="wYZ-by-NhD"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="12"/>
+                                        <integer key="value" value="3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -263,7 +272,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="bCt-e4-yJZ" secondAttribute="trailing" constant="32" id="iqa-Vn-fpN"/>
                             <constraint firstItem="bCt-e4-yJZ" firstAttribute="leading" secondItem="arv-4g-ywX" secondAttribute="leading" constant="32" id="pnz-e5-Y3h"/>
