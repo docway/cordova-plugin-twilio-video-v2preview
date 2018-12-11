@@ -20,7 +20,7 @@ var configobj = JSON.parse(fs.readFileSync(ourconfigfile, 'utf8'));
 // Add java files where you want to add R.java imports in the following array
 var filestoreplace = [
     "platforms/android/app/src/main/java/com/docway/video/ConversationActivity.java",
-    "platforms/android/app/src/main/java/com/docway/video/Dialog.java"
+    "platforms/android/app/src/main/java/com/docway/video/EndCallDialog.java"
 ];
 
 filestoreplace.forEach(function(val, index, array) {
