@@ -90,27 +90,32 @@
         </config-file>
         <source-file src="src/android/VideoConversationPlugin.java" target-dir="src/com/docway/video" />
         <source-file src="src/android/ConversationActivity.java" target-dir="src/com/docway/video" />
-        <source-file src="src/android/Dialog.java" target-dir="src/com/docway/video" />
+        <source-file src="src/android/EndCallDialog.java" target-dir="src/com/docway/video" />
 		<source-file src="src/android/VideoCallReceiver.java" target-dir="src/com/docway/video" />
         <framework src="src/android/docwayvideo.gradle" custom="true" type="gradleReference" />
         <dependency id="cordova-plugin-compat" />
         
-        <resource-file src="src/android/res/drawable/ic_call_black_24dp.xml" target="res/drawable/ic_call_black_24dp.xml" />
-        <resource-file src="src/android/res/drawable/ic_call_end_white_24px.xml" target="res/drawable/ic_call_end_white_24px.xml" />
-        <resource-file src="src/android/res/drawable/ic_call_white_24px.xml" target="res/drawable/ic_call_white_24px.xml" />
-        <resource-file src="src/android/res/drawable/ic_mic_green_24px.xml" target="res/drawable/ic_mic_green_24px.xml" />
-        <resource-file src="src/android/res/drawable/ic_mic_off_red_24px.xml" target="res/drawable/ic_mic_off_red_24px.xml" />
-        <resource-file src="src/android/res/drawable/ic_switch_camera_512dp.xml" target="res/drawable/ic_switch_camera_512dp.xml" />
-        <resource-file src="src/android/res/drawable/ic_videocam_green_24px.xml" target="res/drawable/ic_videocam_green_24px.xml" />
-        <resource-file src="src/android/res/drawable/ic_videocam_off_red_24px.xml" target="res/drawable/ic_videocam_off_red_24px.xml" />
-        <resource-file src="src/android/res/drawable/ic_volume_down_green_24px.xml" target="res/drawable/ic_volume_down_green_24px.xml" />
-        <resource-file src="src/android/res/drawable/ic_volume_down_white_24px.xml" target="res/drawable/ic_volume_down_white_24px.xml" />
+        <resource-file src="src/android/res/drawable/ic_cam_off.xml" target="res/drawable/ic_cam_off.xml" />
+        <resource-file src="src/android/res/drawable/ic_cam_on.xml" target="res/drawable/ic_cam_on.xml" />
+        <resource-file src="src/android/res/drawable/ic_end_call.xml" target="res/drawable/ic_end_call.xml" />
+        <resource-file src="src/android/res/drawable/ic_microphone_off.xml" target="res/drawable/ic_microphone_off.xml" />
+        <resource-file src="src/android/res/drawable/ic_microphone_on.xml" target="res/drawable/ic_microphone_on.xml" />
+        <resource-file src="src/android/res/drawable/ic_switch_camera.xml" target="res/drawable/ic_switch_camera.xml" />
+        <resource-file src="src/android/res/drawable/shape_end_call.xml" target="res/drawable/shape_end_call.xml" />
+        <resource-file src="src/android/res/drawable/shape_end_call_negative.xml" target="res/drawable/shape_end_call_negative.xml" />
+        <resource-file src="src/android/res/drawable/shape_end_call_positive.xml" target="res/drawable/shape_end_call_positive.xml" />
 
+		<resource-file src="src/android/res/font/maven_pro.xml" target="res/font/maven_pro.xml" />
+		<resource-file src="src/android/res/font/maven_pro_medium.xml" target="res/font/maven_pro_medium.xml" />
+		
         <resource-file src="src/android/res/layout/activity_video.xml" target="res/layout/activity_video.xml" />
         <resource-file src="src/android/res/layout/content_video.xml" target="res/layout/content_video.xml" />
+        <resource-file src="src/android/res/layout/dialog_end_call.xml" target="res/layout/dialog_end_call.xml" />
       
         <resource-file src="src/android/res/values/colors.xml" target="res/values/colors.xml" />
         <resource-file src="src/android/res/values/dimens.xml" target="res/values/dimens.xml" />
+        <resource-file src="src/android/res/values/font_certs.xml" target="res/values/font_certs.xml" />
+        <resource-file src="src/android/res/values/preloaded_fonts.xml" target="res/values/preloaded_fonts.xml" />
         <resource-file src="src/android/res/values/strings.xml" target="res/values/strings.xml" />
         <resource-file src="src/android/res/values/styles.xml" target="res/values/styles.xml" />
 

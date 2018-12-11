@@ -7,4 +7,11 @@
     <string name="permissions_needed">Cannot use this functionality without Camera and Microphone permissions. Please provide the required permissions in App Settings.</string>
     <string name="launcher_name">@string/app_name</string>
     <string name="activity_name">@string/launcher_name</string>
+    <string name="loading">Conectando…</string>
+    <string name="warning">Atenção</string>
+    <string name="back">Voltar</string>
+    <string name="yes">Sim</string>
+    <string name="confirm_exit_of_call">Deseja sair do atendimento? Você pode voltar a acessar enquanto o atendimento estiver ativo.</string>
+    <string name="permissions_needed">Não é possível utilizar essa funcionalidade sem as permissões de Camera e Microfone.</string>
+    <string name="stopwatch">%1$s:%2$s</string>
 </resources>
