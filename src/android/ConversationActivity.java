@@ -83,20 +83,9 @@ public class ConversationActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-
-        /*
         this.roomId =   intent.getStringExtra("roomId");
         this.accessToken = intent.getStringExtra("token");
         this.remoteName =   intent.getStringExtra("remoteName");
-        */
-
-        this.roomId = "UAHDUH54935";
-
-        //this.remoteName = "Cel1";
-        //this.accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJpc3MiOiJTSzhhYmIzMzE4YmVlZWE0NjQ4MWEyYjlkNjA5MGZhNTI3IiwiZXhwIjoxNTQzOTUzNjAzLCJqdGkiOiJTSzhhYmIzMzE4YmVlZWE0NjQ4MWEyYjlkNjA5MGZhNTI3LTE1NDM4NjcyMDMiLCJzdWIiOiJBQzI2OTA3YzIwZmM3MWRlOTBkZTE5MGU4NGM0OTcwZGFjIiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiQ2VsMSIsInZpZGVvIjp7InJvb20iOiJVQUhEVUg1NDkzNSJ9fX0._2aj4DX9VBEHYIDPTjnms94TmUC1kAH6L_2IoUiAL8A";
-
-        this.remoteName = "Cel2";
-        this.accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJpc3MiOiJTSzhhYmIzMzE4YmVlZWE0NjQ4MWEyYjlkNjA5MGZhNTI3IiwiZXhwIjoxNTQzOTUzNzI4LCJqdGkiOiJTSzhhYmIzMzE4YmVlZWE0NjQ4MWEyYjlkNjA5MGZhNTI3LTE1NDM4NjczMjgiLCJzdWIiOiJBQzI2OTA3YzIwZmM3MWRlOTBkZTE5MGU4NGM0OTcwZGFjIiwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiQ2VsMiIsInZpZGVvIjp7InJvb20iOiJVQUhEVUg1NDkzNSJ9fX0.z09Nrnd0kK4K-xdWsxJc4gbyXNQNz6DoN5oE53aKkGA";
 
         if (!checkPermissionForCameraAndMicrophone()) {
             requestPermissionForCameraAndMicrophone();
