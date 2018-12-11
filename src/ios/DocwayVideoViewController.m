@@ -63,6 +63,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.timerLabel setText:@"00:00"];
     [self logMessage:[NSString stringWithFormat:@"TwilioVideo v%@", [TwilioVideo version]]];
     
     // Configure access token manually for testing, if desired! Create one manually in the console
@@ -204,7 +205,6 @@
 
 - (void)setupRemoteView {
     self.remoteView.delegate = self;
-    [[[TimerController alloc] initWithLabel:self.timerLabel] update];
 }
 
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
@@ -221,8 +221,6 @@
 - (void)cleanupRemoteParticipant {
     if (self.participant) {
         if ([self.participant.videoTracks count] > 0) {
-            [self.timerLabel setText:@"00:00"];
-
             TVIVideoTrack *videoTrack = self.participant.videoTracks[0].videoTrack;
             [videoTrack removeRenderer:self.remoteView];
         }
@@ -241,6 +239,7 @@
     
     // [self logMessage:[NSString stringWithFormat:@"Connected to room %@ as %@", room.name, room.localParticipant.identity]];
     [self logMessage:@"Waiting on participant to join"];
+    [[[TimerController alloc] initWithLabel:self.timerLabel] update];
 
     if (room.remoteParticipants.count > 0) {
         self.participant = room.remoteParticipants[0];
