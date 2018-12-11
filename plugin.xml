@@ -77,7 +77,12 @@
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity 
+            <receiver android:name="com.docway.video.VideoCallReceiver">
+				<intent-filter>
+					<action android:name="android.intent.action.HEADSET_PLUG"/>
+				</intent-filter>
+			</receiver>
+			<activity 
                 android:name="com.docway.video.ConversationActivity"
                 android:configChanges="orientation|screenSize" 
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -86,6 +91,7 @@
         <source-file src="src/android/VideoConversationPlugin.java" target-dir="src/com/docway/video" />
         <source-file src="src/android/ConversationActivity.java" target-dir="src/com/docway/video" />
         <source-file src="src/android/Dialog.java" target-dir="src/com/docway/video" />
+		<source-file src="src/android/VideoCallReceiver.java" target-dir="src/com/docway/video" />
         <framework src="src/android/docwayvideo.gradle" custom="true" type="gradleReference" />
         <dependency id="cordova-plugin-compat" />
         
