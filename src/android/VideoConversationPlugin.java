@@ -13,6 +13,7 @@ public class VideoConversationPlugin extends CordovaPlugin {
     private String roomId;
     private String token;
     private String remoteParticipantName;
+    private String connectionMessage;
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
@@ -33,6 +34,7 @@ public class VideoConversationPlugin extends CordovaPlugin {
             this.roomId = args.getString(0);
             this.token = args.getString(1);
             this.remoteParticipantName = args.getString(2);
+            this.connectionMessage = args.getString(3);
             final CordovaPlugin that = this;
             final String token = this.token;
             final String roomId = this.roomId;
@@ -47,6 +49,7 @@ public class VideoConversationPlugin extends CordovaPlugin {
                 intentTwilioVideo.putExtra("token", token);
                 intentTwilioVideo.putExtra("roomId", roomId);
                 intentTwilioVideo.putExtra("remoteName", remoteParticipantName);
+                intentTwilioVideo.putExtra("connectionMessage", this.connectionMessage);
                 that.cordova.startActivityForResult(that, intentTwilioVideo, 0);
             });
         } catch (JSONException e) {  }

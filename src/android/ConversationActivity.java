@@ -86,6 +86,7 @@ public class ConversationActivity extends AppCompatActivity {
         this.roomId =   intent.getStringExtra("roomId");
         this.accessToken = intent.getStringExtra("token");
         this.remoteName =   intent.getStringExtra("remoteName");
+        remoteIdentity.setText(intent.getStringExtra("connectionMessage"));
 
         if (!checkPermissionForCameraAndMicrophone()) {
             requestPermissionForCameraAndMicrophone();

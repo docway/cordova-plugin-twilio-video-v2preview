@@ -65,6 +65,7 @@
     
     [self.timerLabel setText:@"00:00"];
     [self logMessage:[NSString stringWithFormat:@"TwilioVideo v%@", [TwilioVideo version]]];
+    [self.messageLabel setText: self.connectionMessage];
     
     // Configure access token manually for testing, if desired! Create one manually in the console
     //  self.accessToken = @"TWILIO_ACCESS_TOKEN";

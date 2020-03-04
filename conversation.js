@@ -1,11 +1,11 @@
 var conversations = {
-  open: function(callTo,token,remoteParticipantName,succ,fail) {
+  open: function(callTo, token, remoteParticipantName, connectionMessage, succ, fail) {
     cordova.exec(
       succ || function(){},
       fail || function(){},
       'VideoConversationPlugin',
       'open',
-      [callTo,token,remoteParticipantName]
+      [callTo, token, remoteParticipantName, connectionMessage]
     );
   }
 };

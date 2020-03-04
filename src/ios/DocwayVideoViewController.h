@@ -10,6 +10,7 @@
 
 @property (nonatomic, strong) NSString *accessToken;
 @property (nonatomic, strong) NSString *remoteParticipantName;
+@property (nonatomic, strong) NSString *connectionMessage;
 
 - (void)connectToRoom:(NSString*)room ;
 
